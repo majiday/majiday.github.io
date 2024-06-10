@@ -21,6 +21,7 @@
             padding: 20px 0;
             width: 100%;
             text-align: center;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
         }
         header h1 {
             margin: 0;
@@ -34,6 +35,10 @@
         }
         main section {
             margin: 20px 0;
+            padding: 20px;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
         }
         img {
             border-radius: 50%;
@@ -42,6 +47,10 @@
             object-fit: cover;
             margin-top: 20px;
             border: 3px solid #4CAF50;
+            transition: transform 0.3s ease;
+        }
+        img:hover {
+            transform: scale(1.1);
         }
         .links {
             margin: 20px 0;
@@ -51,9 +60,10 @@
             text-decoration: none;
             margin: 0 10px;
             font-size: 1.1em;
+            transition: color 0.3s ease;
         }
         .links a:hover {
-            text-decoration: underline;
+            color: #357a38;
         }
         .publications {
             text-align: left;
@@ -80,6 +90,22 @@
             .links a {
                 font-size: 1em;
             }
+        }
+        #back-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            display: none;
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        #back-to-top:hover {
+            background-color: #357a38;
         }
     </style>
 </head>
@@ -115,5 +141,22 @@
     <footer>
         <p>&copy; 2024 Javad Alverdi. All rights reserved.</p>
     </footer>
+    <button id="back-to-top">Back to Top</button>
+    <script>
+        // Show "Back to Top" button when user scrolls down
+        window.addEventListener('scroll', function() {
+            const backToTopButton = document.getElementById('back-to-top');
+            if (window.scrollY > 200) {
+                backToTopButton.style.display = 'block';
+            } else {
+                backToTopButton.style.display = 'none';
+            }
+        });
+
+        // Scroll to top when "Back to Top" button is clicked
+        document.getElementById('back-to-top').addEventListener('click', function() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+    </script>
 </body>
 </html>
