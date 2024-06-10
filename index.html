@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Majid Allahyari's Personal Website</title>
+    <title>Javad Alverdi's Personal Website</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -18,9 +18,13 @@
         header, footer {
             background-color: #4CAF50;
             color: white;
-            padding: 10px 0;
+            padding: 20px 0;
             width: 100%;
             text-align: center;
+        }
+        header h1 {
+            margin: 0;
+            font-size: 2.5em;
         }
         main {
             text-align: center;
@@ -28,12 +32,16 @@
             max-width: 800px;
             margin: 0 auto;
         }
+        main section {
+            margin: 20px 0;
+        }
         img {
             border-radius: 50%;
             width: 150px;
             height: 150px;
             object-fit: cover;
             margin-top: 20px;
+            border: 3px solid #4CAF50;
         }
         .links {
             margin: 20px 0;
@@ -42,46 +50,47 @@
             color: #4CAF50;
             text-decoration: none;
             margin: 0 10px;
+            font-size: 1.1em;
+        }
+        .links a:hover {
+            text-decoration: underline;
         }
         .publications {
             text-align: left;
             margin-top: 20px;
         }
+        .publications ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        .publications li {
+            margin: 10px 0;
+        }
+        .publications a {
+            color: #4CAF50;
+            text-decoration: none;
+        }
+        .publications a:hover {
+            text-decoration: underline;
+        }
+        @media (max-width: 600px) {
+            header h1 {
+                font-size: 2em;
+            }
+            .links a {
+                font-size: 1em;
+            }
+        }
     </style>
 </head>
 <body>
     <header>
-        <h1>Majid Allahyari's Personal Website</h1>
+        <h1>Javad Alverdi's Personal Website</h1>
     </header>
     <main>
         <section>
             <h2>About Me</h2>
-            <p>Hello! I am Majid Allahyari, a Machine Learning Engineer with a passion for AI and technology. I specialize in applying cutting-edge AI solutions to tackle complex problems in a broad spectrum of practical implementations. With extensive experience in deep learning algorithms, generative AI solutions, and applied ML techniques, I strive to enhance process efficiencies and foster innovations.</p>
+            <p>Hello! I am Javad Alverdi, a Machine Learning Engineer with a passion for AI and technology. I specialize in applying cutting-edge AI solutions to tackle complex problems in a broad spectrum of practical implementations. With extensive experience in deep learning algorithms, generative AI solutions, and applied ML techniques, I strive to enhance process efficiencies and foster innovations.</p>
         </section>
         <section>
-            <img src="img.jpg" alt="Majid Allahyari">
-        </section>
-        <section class="links">
-            <h3>Connect with Me</h3>
-            <a href="https://www.linkedin.com/in/Majid Allahyari">LinkedIn</a>
-            <a href="https://github.com/Majid Allahyari">GitHub</a>
-            <a href="path/to/your-publications.pdf">Publications</a>
-            <a href="path/to/your-talks.pdf">Talks</a>
-        </section>
-        <section class="publications">
-            <h3>Publications</h3>
-            <ul>
-                <li><a href="link-to-publication-1">Title of Publication 1</a> - Journal/Conference, Year</li>
-                <li><a href="link-to-publication-2">Title of Publication 2</a> - Journal/Conference, Year</li>
-                <li><a href="link-to-publication-3">Title of Publication 3</a> - Journal/Conference, Year</li>
-                <!-- Add more publications as needed -->
-            </ul>
-        </section>
-    </main>
-    <footer>
-        <p>&copy; 2024 Majid Allahyari. All rights reserved.</p>
-    </footer>
-</body>
-</html>
-
-
+            <img src="path/to/your-image.jpg" alt="Portr
