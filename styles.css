@@ -26,6 +26,35 @@ header p {
     font-weight: 300;
 }
 
+nav {
+    background: #333;
+}
+
+nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    text-align: center;
+}
+
+nav ul li {
+    display: inline;
+}
+
+nav ul li a {
+    display: inline-block;
+    color: white;
+    text-align: center;
+    padding: 14px 20px;
+    text-decoration: none;
+    transition: background 0.3s ease;
+}
+
+nav ul li a:hover {
+    background: #575757;
+}
+
 main {
     max-width: 1200px;
     margin: 20px auto;
