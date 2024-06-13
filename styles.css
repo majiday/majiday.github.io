@@ -168,6 +168,10 @@ main {
     font-weight: bold;
 }
 
+#contact input[type="email"] {
+    width: 80%;  /* Adjust the width as needed */
+}
+
 #contact input, #contact textarea {
     width: 100%;
     max-width: 600px;
