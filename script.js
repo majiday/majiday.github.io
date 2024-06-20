@@ -26,7 +26,8 @@ document.getElementById('publications-menu').addEventListener('click', function(
 
 // Hide "Publications" submenu when clicking outside
 document.addEventListener('click', function(event) {
-    var isClickInside = document.getElementById('publications-menu').contains(event.target);
+    var isClickInside = document.getElementById('publications-menu').contains(event.target) ||
+                        document.getElementById('publications-submenu').contains(event.target);
     var submenu = document.getElementById('publications-submenu');
     if (!isClickInside && submenu.style.display === 'block') {
         submenu.style.display = 'none';
