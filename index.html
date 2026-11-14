@@ -1,0 +1,534 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"/>
+<meta name="color-scheme" content="light dark"/>
+<link rel="icon" href="data:,"/>
+<title>Majid Allahyari, PhD — Senior Machine Learning Engineer</title>
+<meta name="description" content="Majid Allahyari, PhD — Senior Machine Learning Engineer at Uber. Machine learning, deep learning and generative AI / LLMs, with roles at AWS, Walmart and Bayer, and a PhD in engineering from the University of Florida."/>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,500;6..72,600;6..72,700&family=Public+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  button,[role="button"],select,summary,input:not([type="checkbox"],[type="radio"]){min-height:2.25rem}
+  :root{
+    --bg:#ffffff; --bg-soft:#f2f5f3; --bg-softer:#eaf0ed;
+    --ink:#14201c; --ink-2:#2c3a36; --muted:#64736d; --muted-2:#84948e;
+    --line:#dde6e1; --card:#ffffff;
+    --accent:#0f5c55; --accent-hover:#0a4540; --accent-soft:#e6f0ed; --accent-text:#0f5c55;
+    --gold:#b7792b; --gold-soft:#fdf3e3;
+    --shadow:0 12px 32px rgba(20,32,28,.08);
+    --radius:18px;
+  }
+  @media (prefers-color-scheme: dark){
+    :root{
+      --bg:#0d1311; --bg-soft:#131a17; --bg-softer:#1a2420;
+      --ink:#edf3f0; --ink-2:#d6e0db; --muted:#9aaca4; --muted-2:#7d9189;
+      --line:#26332e; --card:#141c19;
+      --accent:#63c7b8; --accent-hover:#7fd6c9; --accent-soft:#17302b; --accent-text:#7fd6c9;
+      --gold:#e2a84b; --gold-soft:#2a2113;
+      --shadow:0 12px 32px rgba(0,0,0,.35);
+    }
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0;font-family:"Public Sans",system-ui,-apple-system,Segoe UI,Roboto,sans-serif;background:var(--bg);color:var(--ink);line-height:1.6;-webkit-font-smoothing:antialiased}
+  a{color:var(--accent);text-decoration:none}
+  a:hover{text-decoration:underline}
+  img{display:block;max-width:100%}
+  .wrap{max-width:1120px;margin:0 auto;padding:0 20px}
+  /* Top bar */
+  .topbar{position:sticky;top:0;z-index:20;background:color-mix(in srgb, var(--bg) 88%, transparent);backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
+  .topbar-inner{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:14px 0}
+  .brand{display:flex;align-items:center;gap:12px;min-width:0}
+  .brand-mark{width:40px;height:40px;border-radius:50%;background:var(--ink);color:var(--bg);display:grid;place-items:center;font-family:"Newsreader",serif;font-weight:700;font-size:18px;flex-shrink:0}
+  .brand b{font-size:15px;letter-spacing:-.01em;white-space:nowrap}
+  .brand span{display:block;font-size:12px;color:var(--muted);font-weight:500;white-space:nowrap}
+  .nav{display:flex;gap:4px;flex-wrap:wrap;justify-content:flex-end}
+  .nav a{color:var(--ink-2);font-size:13.5px;font-weight:600;padding:8px 12px;border-radius:999px;min-height:36px;display:inline-flex;align-items:center}
+  .nav a:hover{background:var(--bg-soft);text-decoration:none}
+  .nav a.cta{background:var(--ink);color:var(--bg)}
+  .nav a.cta:hover{background:var(--accent);color:#fff}
+  @media(max-width:640px){ .brand span{display:none} .brand-mark{width:34px;height:34px;font-size:15px} .brand b{font-size:14px} .topbar-inner{flex-direction:column;align-items:flex-start;gap:6px;padding:10px 0} .nav{width:100%;justify-content:flex-start} }
+
+  /* Hero */
+  .hero{padding:48px 0 36px;border-bottom:1px solid var(--line);background:var(--bg)}
+  .hero-grid{display:grid;grid-template-columns:1.25fr .75fr;gap:40px;align-items:center}
+  @media(max-width:840px){.hero-grid{grid-template-columns:1fr} .hero{padding-top:32px}}
+  .eyebrow{display:inline-flex;align-items:center;gap:8px;font-size:12px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--accent-text);background:var(--accent-soft);border:1px solid color-mix(in srgb, var(--accent) 18%, transparent);border-radius:999px;padding:8px 12px}
+  .eyebrow i{width:7px;height:7px;border-radius:50%;background:var(--accent);display:block}
+  h1{font-family:"Newsreader",Georgia,serif;font-size:clamp(42px,6vw,64px);line-height:.95;letter-spacing:-.02em;margin:18px 0 12px;font-weight:700}
+  h1 em{font-style:italic;font-weight:500;color:var(--accent)}
+  .role{font-size:18px;line-height:1.5;color:var(--ink-2);font-weight:600;max-width:560px}
+  .role strong{color:var(--ink)}
+  .bio{margin-top:14px;color:var(--muted);font-size:16px;line-height:1.75;max-width:600px}
+  .bio strong{color:var(--ink-2)}
+  .chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:20px}
+  .chip{font-size:13px;font-weight:600;padding:7px 11px;border:1px solid var(--line);border-radius:999px;background:var(--card);color:var(--ink-2)}
+  .hero-actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:24px}
+  .btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:11px 18px;border-radius:999px;font-weight:700;font-size:14px;border:1px solid var(--ink);min-height:44px;cursor:pointer}
+  .btn-primary{background:var(--ink);color:var(--bg)}
+  .btn-primary:hover{background:var(--accent);border-color:var(--accent);color:#fff;text-decoration:none}
+  .btn-secondary{background:transparent;color:var(--ink)}
+  .btn-secondary:hover{background:var(--bg-soft);text-decoration:none}
+  .portrait-wrap{position:relative;max-width:380px;margin-left:auto;width:100%}
+  @media(max-width:840px){.portrait-wrap{margin:0 auto}}
+  .portrait-frame{border-radius:28px;overflow:hidden;border:1px solid var(--line);box-shadow:var(--shadow);background:#20262b;aspect-ratio:1/1.02}
+  .portrait-frame img{width:100%;height:100%;object-fit:cover}
+  .portrait-card{position:absolute;left:-14px;bottom:18px;background:var(--card);border:1px solid var(--line);box-shadow:var(--shadow);border-radius:14px;padding:12px 14px;max-width:250px}
+  .portrait-card b{font-size:13px;display:block}
+  .portrait-card span{font-size:12.5px;color:var(--muted);line-height:1.45;display:block;margin-top:2px}
+  @media(max-width:480px){.portrait-card{left:10px;right:10px;max-width:none}}
+  .stats{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:36px}
+  @media(max-width:700px){.stats{grid-template-columns:repeat(2,1fr)}}
+  .stat{background:var(--bg-soft);border:1px solid var(--line);border-radius:16px;padding:16px}
+  .stat b{font-family:"Newsreader",serif;font-size:28px;line-height:1;display:block}
+  .stat span{font-size:12.5px;color:var(--muted);font-weight:600;letter-spacing:.02em}
+
+  /* Sections */
+  section{padding:52px 0}
+  section.alt{background:var(--bg-soft);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+  .sec-head{display:flex;align-items:flex-end;justify-content:space-between;gap:20px;flex-wrap:wrap;margin-bottom:24px}
+  .sec-head h2{font-family:"Newsreader",serif;font-size:34px;line-height:1;letter-spacing:-.02em;margin:8px 0 6px}
+  .sec-head p{color:var(--muted);margin:0;max-width:560px;font-size:15px}
+  .kicker{font-size:11px;font-weight:800;letter-spacing:.16em;text-transform:uppercase;color:var(--accent-text)}
+  /* Focus */
+  .focus-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:12px}
+  @media(max-width:980px){.focus-grid{grid-template-columns:repeat(3,1fr)}}
+  @media(max-width:640px){.focus-grid{grid-template-columns:repeat(2,1fr)}}
+  @media(max-width:380px){.focus-grid{grid-template-columns:1fr}}
+  .focus{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:18px}
+  .focus-icon{width:38px;height:38px;border-radius:10px;background:var(--accent-soft);display:grid;place-items:center;font-size:18px;margin-bottom:12px}
+  .focus h3{margin:0 0 6px;font-size:15px;line-height:1.3}
+  .focus p{margin:0;font-size:13.5px;color:var(--muted);line-height:1.6}
+  /* Publications */
+  .toolbar{display:flex;gap:10px;flex-wrap:wrap;align-items:center;margin-bottom:18px}
+  .search{flex:1;min-width:220px;display:flex;align-items:center;gap:8px;background:var(--card);border:1px solid var(--line);border-radius:999px;padding:4px 6px 4px 14px}
+  .search input{flex:1;border:0;outline:0;background:transparent;color:var(--ink);font-size:14px;min-height:36px;font-family:inherit}
+  .search input::placeholder{color:var(--muted-2)}
+  .pill{border:1px solid var(--line);background:var(--card);color:var(--ink-2);padding:8px 13px;border-radius:999px;font-weight:700;font-size:13px;cursor:pointer;min-height:38px}
+  .pill.active{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+  .count{font-size:13px;color:var(--muted);font-weight:600}
+  .pub-list{display:flex;flex-direction:column;gap:14px}
+  .pub{display:grid;grid-template-columns:220px 1fr;gap:0;background:var(--card);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden}
+  @media(max-width:700px){.pub{grid-template-columns:1fr}}
+  .pub-thumb{background:var(--bg-softer);min-height:170px}
+  .pub-thumb img{width:100%;height:100%;object-fit:cover;aspect-ratio:4/3}
+  @media(max-width:700px){.pub-thumb img{aspect-ratio:16/9}}
+  .pub-body{padding:20px 20px 18px}
+  .pub-meta{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin-bottom:8px}
+  .year{font-size:12px;font-weight:800;letter-spacing:.06em;background:var(--ink);color:var(--bg);padding:4px 8px;border-radius:999px}
+  .venue{font-size:12.5px;font-weight:700;color:var(--accent-text);background:var(--accent-soft);padding:4px 8px;border-radius:999px}
+  .pub h3{margin:0;font-size:17px;line-height:1.4;letter-spacing:-.01em}
+  .pub h3 a{color:var(--ink)}
+  .authors{margin-top:8px;font-size:14px;color:var(--muted);line-height:1.6}
+  .authors strong{color:var(--ink);background:var(--gold-soft);padding:1px 4px;border-radius:4px}
+  .pub-foot{margin-top:12px;display:flex;gap:8px;flex-wrap:wrap;align-items:center;justify-content:space-between}
+  .cite{font-size:12.5px;color:var(--muted)}
+  .copy-btn{border:1px solid var(--line);background:var(--bg-soft);color:var(--ink);font-size:12.5px;font-weight:700;padding:7px 10px;border-radius:999px;cursor:pointer;min-height:36px}
+  .empty{display:none;text-align:center;padding:36px;border:1px dashed var(--line);border-radius:16px;color:var(--muted);background:var(--card)}
+  /* Conferences */
+  .conf-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
+  @media(max-width:760px){.conf-grid{grid-template-columns:1fr}}
+  .conf{display:grid;grid-template-columns:132px 1fr;background:var(--card);border:1px solid var(--line);border-radius:16px;overflow:hidden}
+  @media(max-width:480px){.conf{grid-template-columns:1fr} .conf img{aspect-ratio:16/9 !important}}
+  .conf img{width:100%;height:100%;object-fit:cover;aspect-ratio:1/1}
+  .conf-body{padding:16px}
+  .conf-body h3{margin:6px 0 6px;font-size:14.5px;line-height:1.45}
+  .conf-body p{margin:0;font-size:13px;color:var(--muted);line-height:1.6}
+  .conf-body p strong{color:var(--ink)}
+  .tag{font-size:11px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+  /* Footer / CTA */
+  .cta-box{background:var(--ink);color:var(--bg);border-radius:20px;padding:28px;display:grid;grid-template-columns:1.3fr .7fr;gap:20px;align-items:center}
+  @media(max-width:700px){.cta-box{grid-template-columns:1fr}}
+  .cta-box h2{font-family:"Newsreader",serif;margin:0 0 8px;font-size:28px;line-height:1.1;color:var(--bg)}
+  .cta-box p{margin:0;opacity:.85;font-size:15px;line-height:1.7}
+  .cta-box .btn{background:var(--bg);color:var(--ink);border-color:var(--bg);justify-self:start}
+  @media(min-width:701px){.cta-box .btn{justify-self:end}}
+  footer{padding:28px 0 36px;color:var(--muted);font-size:13px}
+  footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;border-top:1px solid var(--line);padding-top:20px}
+  /* Experience */
+  .exp-list{display:flex;flex-direction:column;gap:14px}
+  .exp{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:22px}
+  .exp-head{display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap;align-items:flex-start;margin-bottom:6px}
+  .exp-head h3{margin:0;font-size:18px;line-height:1.3;letter-spacing:-.01em}
+  .exp-head h3 span{color:var(--accent-text)}
+  .exp-date{font-size:12px;font-weight:800;letter-spacing:.05em;background:var(--ink);color:var(--bg);padding:5px 9px;border-radius:999px;white-space:nowrap}
+  .exp-date.current{background:var(--accent);color:#fff}
+  @media (prefers-color-scheme: dark){.exp-date.current{color:#0d1311}}
+  .exp ul{margin:10px 0 0;padding-left:18px;color:var(--muted);font-size:14.5px;line-height:1.7}
+  .exp ul li{margin-bottom:8px}
+  .exp ul li strong{color:var(--ink)}
+  .exp ul li:last-child{margin-bottom:0}
+  .tech{margin-top:14px;display:flex;flex-wrap:wrap;gap:6px}
+  .tech span{font-size:12px;font-weight:600;padding:5px 9px;border:1px solid var(--line);border-radius:999px;background:var(--bg-soft);color:var(--ink-2)}
+  .tech-label{font-size:11px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);width:100%;margin-bottom:2px}
+  /* Education & skills */
+  .edu-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+  @media(max-width:760px){.edu-grid{grid-template-columns:1fr}}
+  .edu-card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:20px}
+  .edu-card h3{margin:0 0 12px;font-size:15px}
+  .edu-card ul{margin:0;padding-left:18px;color:var(--muted);font-size:14px;line-height:1.7}
+  .edu-card ul li{margin-bottom:6px}
+  .edu-card ul li strong{color:var(--ink)}
+  .edu-card p{margin:0 0 10px;color:var(--muted);font-size:14px;line-height:1.7}
+  .edu-card p:last-child{margin-bottom:0}
+  .edu-card p strong{color:var(--ink)}
+  .contact-line{display:flex;flex-wrap:wrap;gap:10px;margin-top:20px}
+  .contact-line a{display:inline-flex;align-items:center;gap:7px;font-size:13.5px;font-weight:700;padding:9px 13px;border:1px solid var(--line);border-radius:999px;background:var(--card);color:var(--ink)}
+  .contact-line a:hover{background:var(--bg-soft);text-decoration:none}
+</style>
+</head>
+<body>
+<header class="topbar">
+  <div class="wrap topbar-inner">
+    <div class="brand">
+      <div class="brand-mark">MA</div>
+      <div><b>Majid Allahyari, PhD</b><span>Senior Machine Learning Engineer · Uber</span></div>
+    </div>
+    <nav class="nav" aria-label="Main">
+      <a href="#about">About</a>
+      <a href="#experience">Experience</a>
+      <a href="#publications">Publications</a>
+      <a href="#conferences" class="hide-m">Conferences</a>
+      <a href="mailto:mallahyari.ut@gmail.com" class="cta">Email me</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <!-- HERO -->
+  <div class="hero">
+    <div class="wrap">
+      <div class="hero-grid">
+        <div>
+          <span class="eyebrow"><i></i> Machine Learning · Deep Learning · Generative AI</span>
+          <h1>Majid<br>Allahyari <em>—</em><br>building AI for<br>real-world problems.</h1>
+          <p class="role">Senior Machine Learning Engineer at <strong>Uber</strong> — previously an Applied Scientist at <strong>AWS</strong> and a Senior Data Scientist (MLE) at <strong>Walmart</strong>.</p>
+          <p class="bio">I specialise in <strong>machine learning, deep learning and generative AI</strong>, building and applying advanced AI systems to complex, real-world problems — with a record of delivering measurable impact across product, research and operations.</p>
+          <div class="chips" aria-label="Key skills">
+            <span class="chip">Deep Learning</span><span class="chip">Generative AI / LLMs</span><span class="chip">Large-Scale ML &amp; Data</span><span class="chip">Transformers &amp; Evaluation</span><span class="chip">Production ML</span>
+          </div>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="#experience">View experience ↓</a>
+            <a class="btn btn-secondary" href="#publications">Publications</a>
+            <a class="btn btn-secondary" href="mailto:mallahyari.ut@gmail.com">mallahyari.ut@gmail.com</a>
+          </div>
+        </div>
+        <div class="portrait-wrap">
+          <div class="portrait-frame"><img src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQIAOAA4AAD/4QCSRXhpZgAATU0AKgAAAAgABAEaAAUAAAABAAAAPgEbAAUAAAABAAAARgEoAAMAAAABAAIAAIdpAAQAAAABAAAATgAAAAAAAACQAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAB/2wCEAAoHBhYVFR0YFh0aGB0aGhoaHh0ZGBsaGh0bIhoYGB0eHR8eHh0eHR0cIT4cHh0eHR0eHh0aHBsYIh0bIhoYGB0bHx0eHR0eHh0eHh0eHR0cGB0aHh0eHh0aHh0dHh0aGhoaGB0eHh0cHh0eHh0cHh0eHh0eHh0eHh0eHh0aGB0cHh0eHh0f/AABEIAKQBIwMBIgACEQEDEQH/xAAbAAABBQEBAAAAAAAAAAAAAAAAAgMEBQYDB//EADgQAAIBAwIDBAYIBgMEAwAAAAABAgMRBAUSITFBUQYTIjYXGBkaGxI1JUMsHR8BYjQ6Ky0f/aAAwDAQACEQMRAD8A8Q3bycosfYhc3B63R2lRjJ2PxUwZYgD5ZqQkA9eU1q4m5QcVbVJypwW3uZreWz5Jzb/kJ4JqK61mP0z0I0x4DmhM9E5mI2mISYb1JkSy55E5n7fM6wq8y+V/2Q==" alt="Majid Allahyari portrait"/></div>
+          <div class="portrait-card"><b>Now at Uber</b><span>Senior Machine Learning Engineer — multi-modal foundation models &amp; LLM-based evaluation.</span></div>
+        </div>
+      </div>
+      <div class="stats">
+        <div class="stat"><b>155+</b><span>Citations on Google Scholar</span></div>
+        <div class="stat"><b>6</b><span>Roles — Uber · AWS · Walmart · Bayer · UF · Tehran</span></div>
+        <div class="stat"><b>14</b><span>Selected publications &amp; conference talks</span></div>
+        <div class="stat"><b>PhD, 2021</b><span>University of Florida · US Permanent Resident</span></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ABOUT / FOCUS -->
+  <section id="about">
+    <div class="wrap">
+      <div class="sec-head">
+        <div><div class="kicker">About &amp; focus</div><h2>What I work on</h2><p>From a PhD in computational science to production ML at Uber, AWS, Walmart and Bayer — I build models that ship, measure and improve real user outcomes.</p></div>
+      </div>
+      <div class="focus-grid">
+        <article class="focus"><div class="focus-icon">🧠</div><h3>Deep Learning</h3><p>Neural models in PyTorch — from multi-modal foundation-model embeddings at Uber to force prediction in particulate flows.</p></article>
+        <article class="focus"><div class="focus-icon">✦</div><h3>Generative AI / LLMs</h3><p>LLM pipelines for evaluation, explainability and agents — context engineering, structured prompting, ranking and model assessment.</p></article>
+        <article class="focus"><div class="focus-icon">▦</div><h3>Large-Scale ML &amp; Data</h3><p>Training and scoring at scale with Spark, PySpark and Airflow, and careful handling of class imbalance and data quality.</p></article>
+        <article class="focus"><div class="focus-icon">⇄</div><h3>Transformers &amp; Evaluation</h3><p>Transformer architectures (Qwen3, GPT, BERT, T5), Flash-Attention, and rigorous evaluation across real business tasks.</p></article>
+        <article class="focus"><div class="focus-icon">⚡</div><h3>Fine-tuning &amp; Production</h3><p>Fine-tuning and LoRA / PEFT on SageMaker and Bedrock, with production implementation in Python and pipeline orchestration.</p></article>
+      </div>
+      <p style="margin-top:18px;color:var(--muted);font-size:14.5px;max-width:760px">Earlier research — still below in the publications — followed <strong style="color:var(--ink)">how things move, spread and fail</strong>: computational fluid dynamics, droplet transport, high-order simulations and scientific machine learning.</p>
+      <div class="contact-line">
+        <a href="mailto:mallahyari.ut@gmail.com">✉ mallahyari.ut@gmail.com</a>
+        <a href="https://majiday.github.io/" target="_blank" rel="noopener">Portfolio — majiday.github.io ↗</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- EXPERIENCE -->
+  <section id="experience" class="alt">
+    <div class="wrap">
+      <div class="sec-head">
+        <div><div class="kicker">Work experience</div><h2>Experience</h2><p>Six roles across industry and research, newest first — from foundation models at Uber to high-performance computing in Tehran.</p></div>
+      </div>
+      <div class="exp-list">
+        <article class="exp">
+          <div class="exp-head"><h3>Senior Machine Learning Engineer — <span>Uber</span></h3><span class="exp-date current">Jan 2026 — Present</span></div>
+          <ul>
+            <li><strong>Multi-modal Earner Foundation Model:</strong> Generated embeddings from earner communications data for a multi-modal foundation model, improving churn prediction by <strong>5%</strong>.</li>
+            <li><strong>LLM-based Conversational Evaluation:</strong> Developed an LLM-based pipeline to infer earner language proficiency from customer and support conversations, using context engineering and retrieval-based evaluation frameworks.</li>
+          </ul>
+          <div class="tech"><span class="tech-label">Tech</span><span>Transformers</span><span>LLMs (Qwen3, GPT)</span><span>Flash-Attention</span><span>K-means</span><span>Feature Encoding</span><span>Python</span></div>
+        </article>
+        <article class="exp">
+          <div class="exp-head"><h3>Applied Scientist — <span>AWS</span></h3><span class="exp-date">Dec 2024 — Sep 2025</span></div>
+          <ul>
+            <li><strong>Complementary product recommendation system:</strong> Developed a recommendation approach using Graph Neural Networks (GATs), with LLM-generated labels and market-basket analysis for offline and online evaluation.</li>
+          </ul>
+          <div class="tech"><span class="tech-label">Tech</span><span>Python</span><span>PyTorch</span><span>SageMaker</span><span>Bedrock</span><span>LLMs</span><span>GAT</span><span>Transformers</span><span>Graph ML</span></div>
+        </article>
+        <article class="exp">
+          <div class="exp-head"><h3>Senior Data Scientist (MLE) — <span>Walmart</span></h3><span class="exp-date">Jun 2023 — Oct 2024</span></div>
+          <ul>
+            <li><strong>Out-of-stock prediction model (GenAI for explainability):</strong> Developed an ML model for item-level out-of-stock prediction and task prioritisation, reducing nil-picks by <strong>15%</strong>.</li>
+            <li><strong>LLM-powered explainability:</strong> Built a natural-language summarisation layer using LLMs and retrieval to interpret model predictions for operations leaders.</li>
+          </ul>
+          <div class="tech"><span class="tech-label">Tech</span><span>XGBoost</span><span>LLMs</span><span>LangChain</span><span>GCP</span><span>PySpark</span><span>Airflow</span><span>SQL</span><span>Python</span></div>
+        </article>
+        <article class="exp">
+          <div class="exp-head"><h3>Senior Data Scientist (MLE) — <span>Bayer</span></h3><span class="exp-date">Jan 2022 — Apr 2023</span></div>
+          <ul>
+            <li><strong>Drying Time Prediction:</strong> Developed an ML model using engineered facility and product features to predict drying time, supporting improved manufacturing operations and plant performance.</li>
+          </ul>
+          <div class="tech"><span class="tech-label">Tech</span><span>GBM</span><span>Time Series</span><span>Random Forest</span><span>Regression</span><span>Word2Vec</span><span>NLP</span><span>TensorFlow</span></div>
+        </article>
+        <article class="exp">
+          <div class="exp-head"><h3>Research Scientist — <span>University of Florida</span></h3><span class="exp-date">Jul 2016 — Dec 2021</span></div>
+          <ul>
+            <li><strong>Deep neural networks for multiphase flows:</strong> A deep neural network-based approach for the force predictions of particulate multiphase flows.</li>
+            <li><strong>Virus-laden droplet tracking:</strong> Tracking virus-laden droplets using high-accuracy models — simulation with VGG16 to classify infected persons.</li>
+          </ul>
+          <div class="tech"><span class="tech-label">Tech</span><span>Deep Learning</span><span>PyTorch</span><span>MATLAB</span><span>Data Augmentation</span><span>Direct Numerical Simulation</span><span>VGG16</span></div>
+        </article>
+        <article class="exp">
+          <div class="exp-head"><h3>Research Assistant — <span>University of Tehran</span></h3><span class="exp-date">Jul 2012 — Jul 2015</span></div>
+          <ul>
+            <li><strong>High-performance computing:</strong> Project on high-performance computation using Message Passing Interface (MPI) for high-order simulations.</li>
+          </ul>
+          <div class="tech"><span class="tech-label">Tech</span><span>HPC</span><span>MPI</span><span>C++</span><span>Computational Science</span><span>PDEs</span></div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- EDUCATION & SKILLS -->
+  <section id="background">
+    <div class="wrap">
+      <div class="sec-head">
+        <div><div class="kicker">Background</div><h2>Education, skills &amp; certifications</h2><p>Engineering training across three universities, and a toolkit that runs from FORTRAN and MPI to LoRA and production LLM systems.</p></div>
+      </div>
+      <div class="edu-grid">
+        <article class="edu-card">
+          <h3>Education</h3>
+          <ul>
+            <li><strong>PhD, Engineering</strong> — University of Florida, Gainesville, FL, 2021</li>
+            <li><strong>MSc, Engineering</strong> — University of Tehran, Tehran, Iran, 2014</li>
+            <li><strong>BSc, Engineering</strong> — K. N. Toosi University of Technology, Tehran, Iran, 2011</li>
+          </ul>
+          <p style="margin-top:12px">Reviewer for <strong>6 journals</strong>; published in prestigious journals including the Nature portfolio — <strong>155+ citations</strong> on Google Scholar.</p>
+        </article>
+        <article class="edu-card">
+          <h3>Technical skills</h3>
+          <p><strong>Programming:</strong> Python, C++, C#, HPC, MPI, AWS, Docker, SQL, NoSQL, MATLAB, FORTRAN, Tableau, Spotfire, R Shiny</p>
+          <p><strong>Machine / deep learning:</strong> PyTorch, TensorFlow, Keras, Scikit-learn, Transformers, BERT, T5, CNN, RNN, BLEU, ROUGE</p>
+          <p><strong>Methods:</strong> Classification, Regression, Clustering, Feature Engineering, Hypothesis Testing, Bayesian Inference, Hadoop</p>
+        </article>
+        <article class="edu-card">
+          <h3>Certifications</h3>
+          <ul>
+            <li>Generative AI with Large Language Models — DeepLearning.AI</li>
+            <li>Neural Networks and Deep Learning</li>
+            <li>Advanced Computer Vision with TensorFlow</li>
+            <li>Computer Vision / Image Processing</li>
+            <li>Introduction to Cloud Computing · Introduction to Software Engineering — IBM / AWS</li>
+          </ul>
+        </article>
+        <article class="edu-card">
+          <h3>At a glance</h3>
+          <ul>
+            <li><strong>Current:</strong> Senior Machine Learning Engineer, Uber (from Jan 2026)</li>
+            <li><strong>Focus:</strong> Deep learning · Generative AI / LLMs · Large-scale ML</li>
+            <li><strong>Status:</strong> US Permanent Resident</li>
+            <li><strong>Contact:</strong> mallahyari.ut@gmail.com</li>
+          </ul>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- PUBLICATIONS -->
+  <section id="publications" class="alt">
+    <div class="wrap">
+      <div class="sec-head">
+        <div><div class="kicker">Selected publications</div><h2>Journal &amp; proceedings papers</h2><p>Seven selected papers. Use search or the year filter to find a topic — try “airborne”, “flow”, “droplet”, or “science”.</p></div>
+        <span class="count" id="pubCount">7 papers</span>
+      </div>
+
+      <div class="toolbar" role="search">
+        <label class="search"><span aria-hidden="true">🔍</span><input id="q" type="search" placeholder="Search title, journal, or author…" aria-label="Search publications"/></label>
+        <button class="pill active" data-year="all">All years</button>
+        <button class="pill" data-year="2023">2023</button>
+        <button class="pill" data-year="2021">2021</button>
+        <button class="pill" data-year="2020">2020</button>
+        <button class="pill" data-year="2018">2018</button>
+      </div>
+
+      <div class="pub-list" id="pubList">
+        <article class="pub" data-year="2023" data-text="sensitivity puff dynamics airborne droplet nuclei violent expiration computers fluids">
+          <div class="pub-thumb"><img src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQIAOAA4AAD/4QCSRXhpZgAATU0AKgAAAAgABAEaAAUAAAABAAAAPgEbAAUAAAABAAAARgEoAAMAAAABAAIAAIdpAAQAAAABAAAATgAAAAAAAACQAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAB/2wCEAAoHBhYVFR0YFh0aGB0aGhoaHh0ZGBsaGh0bIhoYGB0eHR8eHh0eHR0cIT4cHh0eHR0eHh0aHBsYIh0bIhoYGB0bHx0eHR0eHh0eHh0eHR0cGB0aHh0eHh0aHh0dHh0aGhoaGB0eHh0cHh0eHh0cHh0eHh0eHh0eHh0eHh0aGB0cHh0eHh0f/AABEIAKQBIwMBIgACEQEDEQH/xAAbAAABBQEBAAAAAAAAAAAAAAAAAgMEBQYDB//EADgQAAIBAwIDBAYIBgMEAwAAAAABAgMRBAUSITFBUQYTIjYXGBkaGxI1JUMsHR8BYjQ6Ky0f/aAAwDAQACEQMRAD8A8Q3bycosfYhc3B63R2lRjJ2PxUwZYgD5ZqQkA9eU1q4m5QcVbVJypwW3uZreWz5Jzb/kJ4JqK61mP0z0I0x4DmhM9E5mI2mISYb1JkSy55E5n7fM6wq8y+V/2Q==" alt="Paper cover for sensitivity of puff dynamics"/></div>
+          <div class="pub-body">
+            <div class="pub-meta"><span class="year">2023</span><span class="venue">Computers &amp; Fluids</span></div>
+            <h3>Sensitivity of puff dynamics and airborne droplet nuclei distribution to variations in violent expiration events</h3>
+            <p class="authors"><strong>Majid Allahyari</strong>, K. Liu, J.S. Salinas, N. Zgheib, S. Balachandar</p>
+            <div class="pub-foot"><span class="cite">Computers &amp; Fluids 251, 105758 (2023)</span><button class="copy-btn" data-cite="Allahyari, M., Liu, K., Salinas, J.S., Zgheib, N., Balachandar, S. Sensitivity of puff dynamics and airborne droplet nuclei distribution to variations in violent expiration events. Computers & Fluids 251, 105758 (2023)">Copy citation</button></div>
+          </div>
+        </article>
+        <article class="pub" data-year="2021" data-text="peering inside cough sneeze airborne transmission dry weather scientific reports">
+          <div class="pub-thumb"><img src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQECWAJYAAD/2wBDAAQDAwMDAgQDAwMEBAQFBgoGBgUFBgwICQcKDgwPDg4MDQ0PERYTDxAVEQ0NExoTFRcYGRkZDxIbHRsYHRYYGRj/2wBDAQQEBAYFBgYGBQYHBwcKJCoqKisrKysrKysrKysrKysrKysrKysrKysrKygrKysrKysrKysrKysrKysrKysrKysrKysrKysrKysrKysrKysrKysrKysrKysrKysrKysrKysrKysrKysrKysrKysrKysrKysrKygrKysrKysrKysrKysrKw==" alt="Paper cover for peering inside a cough"/></div>
+          <div class="pub-body">
+            <div class="pub-meta"><span class="year">2021</span><span class="venue">Scientific Reports</span></div>
+            <h3>Peering inside a cough or sneeze to explain enhanced airborne transmission under dry weather</h3>
+            <p class="authors">K. Liu, <strong>Majid Allahyari</strong>, J.S. Salinas, N. Zgheib, S. Balachandar</p>
+            <div class="pub-foot"><span class="cite">Scientific Reports 11 (1), 9826 (2021)</span><button class="copy-btn" data-cite="Liu, K., Allahyari, M., Salinas, J.S., Zgheib, N., Balachandar, S. Peering inside a cough or sneeze to explain enhanced airborne transmission under dry weather. Scientific Reports 11 (1), 9826 (2021)">Copy citation</button></div>
+          </div>
+        </article>
+        <article class="pub" data-year="2021" data-text="theoretical scaling laws large eddy simulations airborne spreading viral contagion sneezing coughing physics of fluids">
+          <div class="pub-thumb"><img src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQECWAJYAAD/2wBDAAQDAwMDAgQDAwMEBAQFBgoGBgUFBgwICQcKDgwPDg4MDQ0PERYTDxAVEQ0NExoTFRcYGRkZDxIbHRsYHRYYGRj/2wBDAQQEBAYFBgYGBQYHBwcKJCoqKisrKysrKysrKysrKysrKysrKysrKysrKygrKysrKysrKysrKysrKysrKysrKysrKysrKysrKysrKysrKysrKysrKysrKysrKysrKysrKysrKysrKysrKysrKysrKysrKysrKygrKysrKysrKysrKysrKw==" alt="Paper cover for theoretical scaling laws"/></div>
+          <div class="pub-body">
+            <div class="pub-meta"><span class="year">2021</span><span class="venue">Physics of Fluids</span></div>
+            <h3>Investigation of theoretical scaling laws using large eddy simulations for airborne spreading of viral contagion from sneezing and coughing</h3>
+            <p class="authors">K. Liu, <strong>Majid Allahyari</strong>, J.S. Salinas, N. Zgheib, S. Balachandar</p>
+            <div class="pub-foot"><span class="cite">Physics of Fluids 33 (6) (2021)</span><button class="copy-btn" data-cite="Liu, K., Allahyari, M., Salinas, J.S., Zgheib, N., Balachandar, S. Investigation of theoretical scaling laws using large eddy simulations for airborne spreading of viral contagion from sneezing and coughing. Physics of Fluids 33 (6) (2021)">Copy citation</button></div>
+          </div>
+        </article>
+        <article class="pub" data-year="2021" data-text="boiling nanoparticles flattened channel experimental thermal analysis calorimetry">
+          <div class="pub-thumb"><img src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQIAOAA4AAD/4QCSRXhpZgAATU0AKgAAAAgABAEaAAUAAAABAAAAPgEbAAUAAAABAAAARgEoAAMAAAABAAIAAIdpAAQAAAABAAAATgAAAAAAAACQAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAB/2wCEAAoHBhYVFR0YFh0aGB0aGhoaHh0ZGBsaGh0bIhoYGB0eHR8eHh0eHR0cIT4cHh0eHR0eHh0aHBsYIh0bIhoYGB0bHx0eHR0eHh0eHh0eHR0cGB0aHh0eHh0aHh0dHh0aGhoaGB0eHh0cHh0eHh0cHh0eHh0eHh0eHh0eHh0aGB0cHh0eHh0f/AABEIAKQBIwMBIgACEQEDEQH/xAAbAAABBQEBAAAAAAAAAAAAAAAAAgMEBQYDB//EADgQAAIBAwIDBAYIBgMEAwAAAAABAgMRBAUSITFBUQYTIjYXGBkaGxI1JUMsHR8BYjQ6Ky0f/aAAwDAQACEQMRAD8A8Q3bycosfYhc3B63R2lRjJ2PxUwZYgD5ZqQkA9eU1q4m5QcVbVJypwW3uZreWz5Jzb/kJ4JqK61mP0z0I0x4DmhM9E5mI2mISYb1JkSy55E5n7fM6wq8y+V/2Q==" alt="Paper cover for boiling nanoparticles"/></div>
+          <div class="pub-body">
+            <div class="pub-meta"><span class="year">2021</span><span class="venue">JTAC</span></div>
+            <h3>Numerical simulation of boiling nanoparticles in a flattened channel</h3>
+            <p class="authors"><strong>Majid Allahyari</strong>, N. Zgheib, S. Balachandar</p>
+            <div class="pub-foot"><span class="cite">Journal of Thermal Analysis and Calorimetry (2021)</span><button class="copy-btn" data-cite="Allahyari, M., Zgheib, N., Balachandar, S. Numerical simulation of boiling nanoparticles in a flattened channel. Journal of Thermal Analysis and Calorimetry (2021)">Copy citation</button></div>
+          </div>
+        </article>
+        <article class="pub" data-year="2020" data-text="settling particles turbulent flow large eddy simulations nacl fluid dynamics">
+          <div class="pub-thumb"><img src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQECWAJYAAD/2wBDAAQDAwMDAgQDAwMEBAQFBgoGBgUFBgwICQcKDgwPDg4MDQ0PERYTDxAVEQ0NExoTFRcYGRkZDxIbHRsYHRYYGRj/2wBDAQQEBAYFBgYGBQYHBwcKJCoqKisrKysrKysrKysrKysrKysrKysrKysrKygrKysrKysrKysrKysrKysrKysrKysrKysrKysrKysrKysrKysrKysrKysrKysrKysrKysrKysrKysrKysrKysrKysrKysrKysrKygrKysrKysrKysrKysrKw==" alt="Paper cover for settling particles"/></div>
+          <div class="pub-body">
+            <div class="pub-meta"><span class="year">2020</span><span class="venue">Journal of Fluid Mechanics</span></div>
+            <h3>Settling of particles in turbulent flow</h3>
+            <p class="authors"><strong>Majid Allahyari</strong>, S. Balachandar</p>
+            <div class="pub-foot"><span class="cite">Journal of Fluid Mechanics 941, A13 (2020)</span><button class="copy-btn" data-cite="Allahyari, M., Balachandar, S. Settling of particles in turbulent flow. Journal of Fluid Mechanics 941, A13 (2020)">Copy citation</button></div>
+          </div>
+        </article>
+        <article class="pub" data-year="2018" data-text="particle induced turbulence fluid particle interactions direct numerical simulation">
+          <div class="pub-thumb"><img src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQIAOAA4AAD/4QCSRXhpZgAATU0AKgAAAAgABAEaAAUAAAABAAAAPgEbAAUAAAABAAAARgEoAAMAAAABAAIAAIdpAAQAAAABAAAATgAAAAAAAACQAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAB/2wCEAAoHBhYVFR0YFh0aGB0aGhoaHh0ZGBsaGh0bIhoYGB0eHR8eHh0eHR0cIT4cHh0eHR0eHh0aHBsYIh0bIhoYGB0bHx0eHR0eHh0eHh0eHR0cGB0aHh0eHh0aHh0dHh0aGhoaGB0eHh0cHh0eHh0cHh0eHh0eHh0eHh0eHh0aGB0cHh0eHh0f/AABEIAKQBIwMBIgACEQEDEQH/xAAbAAABBQEBAAAAAAAAAAAAAAAAAgMEBQYDB//EADgQAAIBAwIDBAYIBgMEAwAAAAABAgMRBAUSITFBUQYTIjYXGBkaGxI1JUMsHR8BYjQ6Ky0f/aAAwDAQACEQMRAD8A8Q3bycosfYhc3B63R2lRjJ2PxUwZYgD5ZqQkA9eU1q4m5QcVbVJypwW3uZreWz5Jzb/kJ4JqK61mP0z0I0x4DmhM9E5mI2mISYb1JkSy55E5n7fM6wq8y+V/2Q==" alt="Paper cover for particle induced turbulence"/></div>
+          <div class="pub-body">
+            <div class="pub-meta"><span class="year">2018</span><span class="venue">Physical Review Fluids</span></div>
+            <h3>Particle-induced turbulence and particle settling in fluidized beds</h3>
+            <p class="authors"><strong>Majid Allahyari</strong>, S. Balachandar</p>
+            <div class="pub-foot"><span class="cite">Physical Review Fluids 3 (7), 074301 (2018)</span><button class="copy-btn" data-cite="Allahyari, M., Balachandar, S. Particle-induced turbulence and particle settling in fluidized beds. Physical Review Fluids 3 (7), 074301 (2018)">Copy citation</button></div>
+          </div>
+        </article>
+      </div>
+      <div class="empty" id="emptyState">No papers match your search.</div>
+    </div>
+  </section>
+
+  <!-- CONFERENCES -->
+  <section id="conferences">
+    <div class="wrap">
+      <div class="sec-head">
+        <div><div class="kicker">Conferences</div><h2>Talks &amp; selected presentations</h2><p>Selected talks and invited sessions on scientific machine learning, multiphase flows and droplet transport.</p></div>
+      </div>
+      <div class="conf-grid">
+        <article class="conf">
+          <img src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQIAOAA4AAD/4QCSRXhpZgAATU0AKgAAAAgABAEaAAUAAAABAAAAPgEbAAUAAAABAAAARgEoAAMAAAABAAIAAIdpAAQAAAABAAAATgAAAAAAAACQAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAB/2wCEAAoHBhYVFR0YFh0aGB0aGhoaHh0ZGBsaGh0bIhoYGB0eHR8eHh0eHR0cIT4cHh0eHR0eHh0aHBsYIh0bIhoYGB0bHx0eHR0eHh0eHh0eHR0cGB0aHh0eHh0aHh0dHh0aGhoaGB0eHh0cHh0eHh0cHh0eHh0eHh0eHh0eHh0aGB0cHh0eHh0f/AABEIAKQBIwMBIgACEQEDEQH/xAAbAAABBQEBAAAAAAAAAAAAAAAAAgMEBQYDB//EADgQAAIBAwIDBAYIBgMEAwAAAAABAgMRBAUSITFBUQYTIjYXGBkaGxI1JUMsHR8BYjQ6Ky0f/aAAwDAQACEQMRAD8A8Q3bycosfYhc3B63R2lRjJ2PxUwZYgD5ZqQkA9eU1q4m5QcVbVJypwW3uZreWz5Jzb/kJ4JqK61mP0z0I0x4DmhM9E5mI2mISYb1JkSy55E5n7fM6wq8y+V/2Q==" alt="Conference talk art"/>
+          <div class="conf-body">
+            <div class="tag">2023</div>
+            <h3>Droplet and aerosol transport under violent expiration events</h3>
+            <p><strong>Talk</strong> — University of Florida / fluid dynamics seminar series</p>
+          </div>
+        </article>
+        <article class="conf">
+          <img src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQECWAJYAAD/2wBDAAQDAwMDAgQDAwMEBAQFBgoGBgUFBgwICQcKDgwPDg4MDQ0PERYTDxAVEQ0NExoTFRcYGRkZDxIbHRsYHRYYGRj/2wBDAQQEBAYFBgYGBQYHBwcKJCoqKisrKysrKysrKysrKysrKysrKysrKysrKygrKysrKysrKysrKysrKysrKysrKysrKysrKysrKysrKysrKysrKysrKysrKysrKysrKysrKysrKysrKysrKysrKysrKysrKysrKygrKysrKysrKysrKysrKw==" alt="Conference talk art 2"/>
+          <div class="conf-body">
+            <div class="tag">2021</div>
+            <h3>Airborne contagion from sneezing and coughing</h3>
+            <p><strong>Seminar</strong> — multiphase flow and COVID transmission modeling</p>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="alt" id="contact">
+    <div class="wrap">
+      <div class="cta-box">
+        <div>
+          <h2>Let’s build better AI systems.</h2>
+          <p>Across research, applied ML and production deployment, I’m interested in machine learning systems that are accurate, robust and useful in the real world.</p>
+        </div>
+        <a class="btn" href="mailto:mallahyari.ut@gmail.com">Email me</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>© 2026 Majid Allahyari</span>
+    <span>Machine learning · deep learning · generative AI</span>
+  </div>
+</footer>
+
+<script>
+  const input = document.getElementById('q');
+  const pills = [...document.querySelectorAll('.pill')];
+  const articles = [...document.querySelectorAll('.pub')];
+  const empty = document.getElementById('emptyState');
+  const count = document.getElementById('pubCount');
+
+  let activeYear = 'all';
+
+  function applyFilter() {
+    const q = input.value.trim().toLowerCase();
+    let visible = 0;
+
+    articles.forEach((article) => {
+      const yearMatch = activeYear === 'all' || article.dataset.year === activeYear;
+      const text = (article.dataset.text || '').toLowerCase();
+      const title = article.querySelector('h3')?.textContent.toLowerCase() || '';
+      const venue = article.querySelector('.venue')?.textContent.toLowerCase() || '';
+      const authors = article.querySelector('.authors')?.textContent.toLowerCase() || '';
+      const qMatch = !q || text.includes(q) || title.includes(q) || venue.includes(q) || authors.includes(q);
+      const show = yearMatch && qMatch;
+      article.style.display = show ? '' : 'none';
+      if (show) visible += 1;
+    });
+
+    empty.style.display = visible ? 'none' : 'block';
+    count.textContent = visible + (visible === 1 ? ' paper' : ' papers');
+  }
+
+  input.addEventListener('input', applyFilter);
+  pills.forEach((pill) => {
+    pill.addEventListener('click', () => {
+      pills.forEach((p) => p.classList.toggle('active', p === pill));
+      activeYear = pill.dataset.year;
+      applyFilter();
+    });
+  });
+
+  document.querySelectorAll('.copy-btn').forEach((button) => {
+    button.addEventListener('click', async () => {
+      try {
+        await navigator.clipboard.writeText(button.dataset.cite || '');
+        const original = button.textContent;
+        button.textContent = 'Copied';
+        setTimeout(() => { button.textContent = original; }, 1200);
+      } catch (err) {
+        button.textContent = 'Copy failed';
+        setTimeout(() => { button.textContent = 'Copy citation'; }, 1200);
+      }
+    });
+  });
+
+  applyFilter();
+</script>
+</body>
+</html>
